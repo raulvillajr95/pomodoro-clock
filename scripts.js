@@ -1,13 +1,13 @@
 const mainTimer = document.getElementById('main-timer');
-const btnStart = document.getElementById('btn-start');
-const btnPause = document.getElementById('btn-pause');
+const btnStartStop = document.getElementById('btn-startstop')
 const btnReset = document.getElementById('btn-reset');
 
+let minutes = 0;
 let seconds = 0;
 let intervalID;
 
 let running = false;
-btnStart.addEventListener('click', function() {
+btnStartStop.addEventListener('click', function() {
   if (running == false) {
     intervalID = setInterval(function() {
       running = true;
@@ -16,13 +16,11 @@ btnStart.addEventListener('click', function() {
       console.log(seconds);
       console.log(running);
     }, 1000);
+  } else {
+    running = false;
+    clearInterval(intervalID);
   };
-});
-
-btnPause.addEventListener('click', function() {
-  running = false;
-  clearInterval(intervalID);
-});
+})
 
 btnReset.addEventListener('click', function() {
   running = false;
@@ -37,9 +35,10 @@ btnReset.addEventListener('click', function() {
 Creating a super super basic timer
 
 ideas
--join start/pause into 1 button
--make sure everything is aligned well
 -mins and seconds
+  just up and up
+  no 00:00
+  only 0:0
 -countdown?? manually inputed on js
 -instead of manual input, use session
 -restart after each session
