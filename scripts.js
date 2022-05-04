@@ -11,11 +11,19 @@ btnStartStop.addEventListener('click', function() {
   if (running == false) {
     intervalID = setInterval(function() {
       running = true;
+
       seconds += 1;
-      mainTimer.textContent = seconds;
+
+      if (seconds == 60) {
+        seconds = 0
+        minutes += 1
+      }
+
+      mainTimer.textContent = `${minutes}:${seconds}`;
       console.log(seconds);
       console.log(running);
-    }, 1000);
+      console.log(minutes)
+    }, 250);
   } else {
     running = false;
     clearInterval(intervalID);
@@ -35,10 +43,6 @@ btnReset.addEventListener('click', function() {
 Creating a super super basic timer
 
 ideas
--mins and seconds
-  just up and up
-  no 00:00
-  only 0:0
 -countdown?? manually inputed on js
 -instead of manual input, use session
 -restart after each session
