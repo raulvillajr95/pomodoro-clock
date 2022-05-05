@@ -43,19 +43,27 @@ btnReset2.addEventListener('click', function() {
   clearInterval(intervalID2);
   minutes2 = 25; startMin2 = 25;// do not change cause default is 5 minutes
   seconds2 = 0;
-  mainTimer2.textContent = `${minutes2}:${seconds2}`;
+  mainTimer2.textContent = `${minutes2}:0${seconds2}`;
 })
 increment2.addEventListener('click', function() {
   if (minutes2 < 60 && startMin2 < 60) {
     minutes2 += 1
     startMin2 += 1
   }
-  mainTimer2.textContent = `${minutes2}:${seconds2}`
+  if (minutes2 < 10) {
+    mainTimer2.textContent = `0${minutes2}:0${seconds2}`
+  } else {
+    mainTimer2.textContent = `${minutes2}:0${seconds2}`
+  }
 })
 decrement2.addEventListener('click', function() {
   if (startMin2 > 1 && minutes2 > 1) {
     minutes2 -= 1
     startMin2 -= 1
   }
-  mainTimer2.textContent = `${minutes2}:${seconds2}`
+  if (minutes2 < 10) {
+    mainTimer2.textContent = `0${minutes2}:0${seconds2}`
+  } else {
+    mainTimer2.textContent = `${minutes2}:0${seconds2}`
+  }
 })

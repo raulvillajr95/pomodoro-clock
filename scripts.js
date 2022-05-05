@@ -43,21 +43,29 @@ btnReset.addEventListener('click', function() {
   clearInterval(intervalID);
   minutes = 5; startMin = 5;// do not change cause default is 5 minutes
   seconds = 0;
-  mainTimer.textContent = `${minutes}:${seconds}`;
+  mainTimer.textContent = `0${minutes}:0${seconds}`;
 })
 increment.addEventListener('click', function() {
   if (minutes < 60 && startMin < 60) {
     minutes += 1
     startMin += 1
   }
-  mainTimer.textContent = `${minutes}:${seconds}`
+  if (minutes < 10) {
+    mainTimer.textContent = `0${minutes}:0${seconds}`
+  } else {
+    mainTimer.textContent = `${minutes}:0${seconds}`
+  }
 })
 decrement.addEventListener('click', function() {
   if (startMin > 1 && minutes > 1) {
     minutes -= 1
     startMin -= 1
   }
-  mainTimer.textContent = `${minutes}:${seconds}`
+  if (minutes < 10) {
+    mainTimer.textContent = `0${minutes}:0${seconds}`
+  } else {
+    mainTimer.textContent = `${minutes}:0${seconds}`
+  }
 })
 
 
@@ -69,7 +77,8 @@ Creating a super super basic timer
 
 ideas
 -official 00:00 timing
-  the startup default 00:00
+  when timer restarts after an end, then for scripts2
+  actual running timer else if's
   the little tinkering 00:00
 -combine, one display but 2 separate timers??
   only 1 start/stop button
