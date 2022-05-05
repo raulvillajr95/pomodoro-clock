@@ -56,21 +56,18 @@ btnReset.addEventListener('click', function() {
 })
 
 increment.addEventListener('click', function() {
-  minutes += 1
-  startMin += 1
+  if (minutes < 60 && startMin < 60) {
+    minutes += 1
+    startMin += 1
+  }
   mainTimer.textContent = `${minutes}:${seconds}`
 })
 
 decrement.addEventListener('click', function() {
-  minutes -= 1
-  startMin -= 1
-  /*
-  potential new code:
   if (startMin > 1 && minutes > 1) {
     minutes -= 1
     startMin -= 1
   }
-  */
   mainTimer.textContent = `${minutes}:${seconds}`
 })
 
@@ -82,15 +79,19 @@ decrement.addEventListener('click', function() {
 Creating a super super basic timer
 
 ideas
--decrement limit to 1 or higher, no 0
--increment limit to 60 or lower, no 61
--instead of manual input, use session
-  i made the buttons and have the here using document
-  next, change the 'minutes' everywhere(resets, etc.)
-  also, update display
 -restart after each session
 -duplicate timer, 2 timers on each page
+  try making a separate .js file
+  same variable names and everything
+  change default to 25
+  change id names on .html file and .js file top
+  maybe at very end change actual variable names
+  add it back to a single file
+-official 00:00 timing
+-combine, one display but 2 separate timers??
+  only 1 start/stop button
+  only 1 reset button
+  multiple inc/dec buttons(2 of each)
 -idk tbh, smallass steps
 -combine them????
--official 00:00 timing
 */
