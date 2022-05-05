@@ -2,7 +2,7 @@ const mainTimer = document.getElementById('main-timer');
 const btnStartStop = document.getElementById('btn-startstop')
 const btnReset = document.getElementById('btn-reset');
 
-let minutes = 0;
+let minutes = 5;
 let seconds = 0;
 let intervalID;
 
@@ -12,18 +12,27 @@ btnStartStop.addEventListener('click', function() {
     intervalID = setInterval(function() {
       running = true;
 
-      seconds += 1;
+      if (seconds == 0) {
+        seconds = 60
+        minutes -= 1
+      }
+      seconds -= 1;
 
-      if (seconds == 60) {
-        seconds = 0
-        minutes += 1
+      if (seconds == 0 && minutes == 0) {
+        running = false;
+        clearInterval(intervalID);
+
+        minutes = 5;
+
+        seconds = 0;
+        mainTimer.textContent = seconds;
       }
 
       mainTimer.textContent = `${minutes}:${seconds}`;
       console.log(seconds);
       console.log(running);
       console.log(minutes)
-    }, 250);
+    }, 1000);
   } else {
     running = false;
     clearInterval(intervalID);
@@ -33,6 +42,9 @@ btnStartStop.addEventListener('click', function() {
 btnReset.addEventListener('click', function() {
   running = false;
   clearInterval(intervalID);
+
+  minutes = 5;
+
   seconds = 0;
   mainTimer.textContent = seconds;
 })
@@ -43,7 +55,6 @@ btnReset.addEventListener('click', function() {
 Creating a super super basic timer
 
 ideas
--countdown?? manually inputed on js
 -instead of manual input, use session
 -restart after each session
 -duplicate timer, 2 timers on each page
