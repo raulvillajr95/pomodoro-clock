@@ -4,7 +4,7 @@ const btnReset = document.getElementById('btn-reset');
 const increment = document.getElementById('increment')
 const decrement = document.getElementById('decrement')
 
-//let startMin = 5;
+let startMin = 5;
 
 let minutes = 5;
 let seconds = 0;
@@ -28,7 +28,7 @@ btnStartStop.addEventListener('click', function() {
         running = false;
         clearInterval(intervalID);
 
-        minutes = 5;//this needs to be modifyied. when reach zero, start where i had it, whether incremented or decremented
+        minutes = startMin;//this needs to be modifyied. when reach zero, start where i had it, whether incremented or decremented
 
         seconds = 0;
         mainTimer.textContent = seconds;
@@ -49,7 +49,7 @@ btnReset.addEventListener('click', function() {
   running = false;
   clearInterval(intervalID);
 
-  minutes = 5;// do not change cause default is 5 minutes
+  minutes = 5; startMin = 5;// do not change cause default is 5 minutes
 
   seconds = 0;
   mainTimer.textContent = `${minutes}:${seconds}`;
@@ -57,11 +57,20 @@ btnReset.addEventListener('click', function() {
 
 increment.addEventListener('click', function() {
   minutes += 1
+  startMin += 1
   mainTimer.textContent = `${minutes}:${seconds}`
 })
 
 decrement.addEventListener('click', function() {
   minutes -= 1
+  startMin -= 1
+  /*
+  potential new code:
+  if (startMin > 1 && minutes > 1) {
+    minutes -= 1
+    startMin -= 1
+  }
+  */
   mainTimer.textContent = `${minutes}:${seconds}`
 })
 
@@ -73,8 +82,8 @@ decrement.addEventListener('click', function() {
 Creating a super super basic timer
 
 ideas
--fix reset issues
--fix inc/dec issues
+-decrement limit to 1 or higher, no 0
+-increment limit to 60 or lower, no 61
 -instead of manual input, use session
   i made the buttons and have the here using document
   next, change the 'minutes' everywhere(resets, etc.)
