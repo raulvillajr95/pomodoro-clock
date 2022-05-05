@@ -32,8 +32,16 @@ btnStartStop2.addEventListener('click', function() {
           mainTimer2.textContent = `${minutes2}:0${seconds2}`
         }
       } else {
-        // this might be where the running timer if else's go
-        mainTimer2.textContent = `${minutes2}:${seconds2}`;
+        // When actually running
+        if (minutes2 < 10 && seconds2 < 10) {
+          mainTimer2.textContent = `0${minutes2}:0${seconds2}`;
+        } else if (minutes2 >= 10 && seconds2 < 10) {
+          mainTimer2.textContent = `${minutes2}:0${seconds2}`;
+        } else if (minutes2 < 10 && seconds2 >= 10) {
+          mainTimer2.textContent = `0${minutes2}:${seconds2}`;
+        } else {
+          mainTimer2.textContent = `${minutes2}:${seconds2}`;
+        }
       }
       console.log(seconds2);
       console.log(running2);

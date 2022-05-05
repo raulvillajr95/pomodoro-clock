@@ -32,8 +32,16 @@ btnStartStop.addEventListener('click', function() {
           mainTimer.textContent = `${minutes}:0${seconds}`
         }
       } else {
-        // this might be where the running timer if else's go
-        mainTimer.textContent = `${minutes}:${seconds}`;
+        // When actually running
+        if (minutes < 10 && seconds < 10) {
+          mainTimer.textContent = `0${minutes}:0${seconds}`;
+        } else if (minutes >= 10 && seconds < 10) {
+          mainTimer.textContent = `${minutes}:0${seconds}`;
+        } else if (minutes < 10 && seconds >= 10) {
+          mainTimer.textContent = `0${minutes}:${seconds}`;
+        } else {
+          mainTimer.textContent = `${minutes}:${seconds}`;
+        }
       }
       console.log(seconds);
       console.log(running);
@@ -82,9 +90,6 @@ decrement.addEventListener('click', function() {
 Creating a super super basic timer
 
 ideas
--official 00:00 timing
-  actual running timer else if's
-  the little tinkering 00:00
 -combine, one display but 2 separate timers??
   only 1 start/stop button
   only 1 reset button
