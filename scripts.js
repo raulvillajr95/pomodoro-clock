@@ -26,9 +26,15 @@ btnStartStop.addEventListener('click', function() {
         clearInterval(intervalID);
         minutes = startMin;//this needs to be modifyied. when reach zero, start where i had it, whether incremented or decremented
         seconds = 0;
-        mainTimer.textContent = seconds;
+        if (minutes < 10) {
+          mainTimer.textContent = `0${minutes}:0${seconds}`
+        } else {
+          mainTimer.textContent = `${minutes}:0${seconds}`
+        }
+      } else {
+        // this might be where the running timer if else's go
+        mainTimer.textContent = `${minutes}:${seconds}`;
       }
-      mainTimer.textContent = `${minutes}:${seconds}`;
       console.log(seconds);
       console.log(running);
       console.log(minutes)
@@ -77,7 +83,6 @@ Creating a super super basic timer
 
 ideas
 -official 00:00 timing
-  when timer restarts after an end, then for scripts2
   actual running timer else if's
   the little tinkering 00:00
 -combine, one display but 2 separate timers??

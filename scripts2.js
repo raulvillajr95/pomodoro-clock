@@ -26,9 +26,15 @@ btnStartStop2.addEventListener('click', function() {
         clearInterval(intervalID2);
         minutes2 = startMin2;//this needs to be modifyied. when reach zero, start where i had it, whether incremented or decremented
         seconds2 = 0;
-        mainTimer2.textContent = seconds2;
+        if (minutes2 < 10) {
+          mainTimer2.textContent = `0${minutes2}:0${seconds2}`
+        } else {
+          mainTimer2.textContent = `${minutes2}:0${seconds2}`
+        }
+      } else {
+        // this might be where the running timer if else's go
+        mainTimer2.textContent = `${minutes2}:${seconds2}`;
       }
-      mainTimer2.textContent = `${minutes2}:${seconds2}`;
       console.log(seconds2);
       console.log(running2);
       console.log(minutes2)
