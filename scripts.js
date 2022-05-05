@@ -1,6 +1,8 @@
 const mainTimer = document.getElementById('main-timer');
 const btnStartStop = document.getElementById('btn-startstop')
 const btnReset = document.getElementById('btn-reset');
+const increment = document.getElementById('increment')
+const decrement = document.getElementById('decrement')
 
 let minutes = 5;
 let seconds = 0;
@@ -32,7 +34,7 @@ btnStartStop.addEventListener('click', function() {
       console.log(seconds);
       console.log(running);
       console.log(minutes)
-    }, 1000);
+    }, 100);
   } else {
     running = false;
     clearInterval(intervalID);
@@ -56,6 +58,9 @@ Creating a super super basic timer
 
 ideas
 -instead of manual input, use session
+  i made the buttons and have the here using document
+  next, change the 'minutes' everywhere(resets, etc.)
+  also, update display
 -restart after each session
 -duplicate timer, 2 timers on each page
 -idk tbh, smallass steps
