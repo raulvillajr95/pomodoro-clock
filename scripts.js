@@ -35,7 +35,9 @@ btnStartStop.addEventListener('click', timer = () => {
         } else {
           mainTimer.textContent = `${minutes}:0${seconds}`
         }
-        timer2()
+        // Momentarily switched it to timer3() to try it with scripts3.js
+        //timer2()
+        timer3()
       } else {
         // When actually running
         if (minutes < 10 && seconds < 10) {
@@ -53,6 +55,7 @@ btnStartStop.addEventListener('click', timer = () => {
       console.log(minutes)
     }, 100);
   } else {
+    // Add a stop to 2nd timer
     running = false;
     clearInterval(intervalID);
   };
@@ -95,9 +98,11 @@ decrement.addEventListener('click', function() {
 Creating a super super basic timer
 
 ideas
--create a thrid start/stop button
-  have be the combination of both start/stop's
-  2 each file
+-create a third display that shows the pomodoros simultaneously
+  pretty much just start putting the pieces together
+  add a third reset button
+-one the first 2 timers, only show the minute goal
+  the timers will only run on the third one
 -combine, one display but 2 separate timers??
   each reset button resets for both
   constraint it to not let it start if it's running
