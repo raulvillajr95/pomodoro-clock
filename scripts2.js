@@ -11,8 +11,11 @@ let intervalID2;
 
 mainTimer2.textContent = `${minutes2}:0${seconds2}`
 
+// Outer function declaration
+let timer2 = () => {}
+
 let running2 = false;
-btnStartStop2.addEventListener('click', function() {
+btnStartStop2.addEventListener('click', timer2 = () => {
   if (running2 == false) {
     intervalID2 = setInterval(function() {
       running2 = true;
@@ -21,16 +24,18 @@ btnStartStop2.addEventListener('click', function() {
         minutes2 -= 1
       }
       seconds2 -= 1;
+      // When timer runs out
       if (seconds2 == 0 && minutes2 == 0) {
         running2 = false;
         clearInterval(intervalID2);
-        minutes2 = startMin2;//this needs to be modifyied. when reach zero, start where i had it, whether incremented or decremented
+        minutes2 = startMin2;
         seconds2 = 0;
         if (minutes2 < 10) {
           mainTimer2.textContent = `0${minutes2}:0${seconds2}`
         } else {
           mainTimer2.textContent = `${minutes2}:0${seconds2}`
         }
+        timer()
       } else {
         // When actually running
         if (minutes2 < 10 && seconds2 < 10) {

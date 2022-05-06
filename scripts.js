@@ -11,8 +11,11 @@ let intervalID;
 
 mainTimer.textContent = `0${minutes}:0${seconds}`
 
+// Outer function declaration
+let timer = () => {}
+
 let running = false;
-btnStartStop.addEventListener('click', function() {
+btnStartStop.addEventListener('click', timer = () => {
   if (running == false) {
     intervalID = setInterval(function() {
       running = true;
@@ -21,16 +24,18 @@ btnStartStop.addEventListener('click', function() {
         minutes -= 1
       }
       seconds -= 1;
+      // When timer runs out(TRO)
       if (seconds == 0 && minutes == 0) {
         running = false;
         clearInterval(intervalID);
-        minutes = startMin;//this needs to be modifyied. when reach zero, start where i had it, whether incremented or decremented
+        minutes = startMin;
         seconds = 0;
         if (minutes < 10) {
           mainTimer.textContent = `0${minutes}:0${seconds}`
         } else {
           mainTimer.textContent = `${minutes}:0${seconds}`
         }
+        timer2()
       } else {
         // When actually running
         if (minutes < 10 && seconds < 10) {
@@ -90,7 +95,12 @@ decrement.addEventListener('click', function() {
 Creating a super super basic timer
 
 ideas
+-create a thrid start/stop button
+  have be the combination of both start/stop's
+  2 each file
 -combine, one display but 2 separate timers??
+  each reset button resets for both
+  constraint it to not let it start if it's running
   only 1 start/stop button
   only 1 reset button
   multiple inc/dec buttons(2 of each)
