@@ -1,18 +1,18 @@
 const mainTimer2 = document.getElementById('main-timer2');
-const btnStartStop2 = document.getElementById('btn-startstop2')
+const btnStartStop2 = document.getElementById('btn-startstop2');
 const btnReset2 = document.getElementById('btn-reset2');
-const increment2 = document.getElementById('increment2')
-const decrement2 = document.getElementById('decrement2')
+const increment2 = document.getElementById('increment2');
+const decrement2 = document.getElementById('decrement2');
 
 let startMin2 = 25;
 let minutes2 = 25;
 let seconds2 = 0;
 let intervalID2;
 
-mainTimer2.textContent = `${minutes2}:0${seconds2}`
+mainTimer2.textContent = `${minutes2}:0${seconds2}`;
 
 // Outer function declaration
-let timer2 = () => {}
+let timer2 = () => {};
 
 let running2 = false;
 btnStartStop2.addEventListener('click', timer2 = () => {
@@ -22,7 +22,7 @@ btnStartStop2.addEventListener('click', timer2 = () => {
       if (seconds2 == 0) {
         seconds2 = 60
         minutes2 -= 1
-      }
+      };
       seconds2 -= 1;
       // When timer runs out
       if (seconds2 == 0 && minutes2 == 0) {
@@ -34,8 +34,8 @@ btnStartStop2.addEventListener('click', timer2 = () => {
           mainTimer2.textContent = `0${minutes2}:0${seconds2}`
         } else {
           mainTimer2.textContent = `${minutes2}:0${seconds2}`
-        }
-        timer()
+        };
+        timer();
       } else {
         // When actually running
         if (minutes2 < 10 && seconds2 < 10) {
@@ -46,11 +46,11 @@ btnStartStop2.addEventListener('click', timer2 = () => {
           mainTimer2.textContent = `0${minutes2}:${seconds2}`;
         } else {
           mainTimer2.textContent = `${minutes2}:${seconds2}`;
-        }
+        };
       }
       console.log(seconds2);
       console.log(running2);
-      console.log(minutes2)
+      console.log(minutes2);
     }, 100);
   } else {
     // Add a stop to 1st timer
@@ -58,7 +58,9 @@ btnStartStop2.addEventListener('click', timer2 = () => {
     clearInterval(intervalID2);
   };
 })
-btnReset2.addEventListener('click', function() {
+// Naming the reset function
+let reset2 = () => {};
+btnReset2.addEventListener('click', reset2 = () => {
   running2 = false;
   clearInterval(intervalID2);
   minutes2 = 25; startMin2 = 25;// do not change cause default is 5 minutes
@@ -67,23 +69,23 @@ btnReset2.addEventListener('click', function() {
 })
 increment2.addEventListener('click', function() {
   if (minutes2 < 60 && startMin2 < 60) {
-    minutes2 += 1
-    startMin2 += 1
+    minutes2 += 1;
+    startMin2 += 1;
   }
   if (minutes2 < 10) {
     mainTimer2.textContent = `0${minutes2}:0${seconds2}`
   } else {
     mainTimer2.textContent = `${minutes2}:0${seconds2}`
-  }
+  };
 })
 decrement2.addEventListener('click', function() {
   if (startMin2 > 1 && minutes2 > 1) {
-    minutes2 -= 1
-    startMin2 -= 1
+    minutes2 -= 1;
+    startMin2 -= 1;
   }
   if (minutes2 < 10) {
-    mainTimer2.textContent = `0${minutes2}:0${seconds2}`
+    mainTimer2.textContent = `0${minutes2}:0${seconds2}`;
   } else {
-    mainTimer2.textContent = `${minutes2}:0${seconds2}`
-  }
-})
+    mainTimer2.textContent = `${minutes2}:0${seconds2}`;
+  };
+});

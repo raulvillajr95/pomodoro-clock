@@ -17,3 +17,17 @@
 #timer-2 {
   margin-left: 1em;
 }
+
+/* Hidden unused buttons */
+#btn-startstop {
+  visibility: hidden;
+}
+#btn-startstop2 {
+  visibility: hidden;
+}
+#btn-reset {
+  visibility: hidden;
+}
+#btn-reset2 {
+  visibility: hidden;
+}
