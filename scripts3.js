@@ -25,22 +25,25 @@ btnStartStop3.addEventListener('click', timer3 = () => {
         clearInterval(intervalID2);
         minutes2 = startMin2;
         seconds2 = 0;
+        // Removing 00:00 format from top 2 timers
         if (minutes2 < 10) {
-          mainTimer2.textContent = `0${minutes2}:0${seconds2}`
+          mainTimer2.textContent = `${minutes2}`
         } else {
-          mainTimer2.textContent = `${minutes2}:0${seconds2}`
+          mainTimer2.textContent = `${minutes2}`
         };
         timer();
       } else {
         // When actually running
+        // Added MainTimer3, to potentially display the running timers on 3rd display
+        // Removing MainTimer2 parts to only show the 3rd display running
         if (minutes2 < 10 && seconds2 < 10) {
-          mainTimer2.textContent = `0${minutes2}:0${seconds2}`;
+          mainTimer3.textContent = `0${minutes2}:0${seconds2}`;
         } else if (minutes2 >= 10 && seconds2 < 10) {
-          mainTimer2.textContent = `${minutes2}:0${seconds2}`;
+          mainTimer3.textContent = `${minutes2}:0${seconds2}`;
         } else if (minutes2 < 10 && seconds2 >= 10) {
-          mainTimer2.textContent = `0${minutes2}:${seconds2}`;
+          mainTimer3.textContent = `0${minutes2}:${seconds2}`;
         } else {
-          mainTimer2.textContent = `${minutes2}:${seconds2}`;
+          mainTimer3.textContent = `${minutes2}:${seconds2}`;
         };
       };
       console.log(seconds2);

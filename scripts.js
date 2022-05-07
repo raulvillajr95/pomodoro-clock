@@ -9,7 +9,8 @@ let minutes = 5;
 let seconds = 0;
 let intervalID;
 
-mainTimer.textContent = `0${minutes}:0${seconds}`;
+// Removing 00:00 format from top 2 timers
+mainTimer.textContent = `${minutes}`;
 
 // Outer function declaration
 let timer = () => {};
@@ -25,29 +26,32 @@ btnStartStop.addEventListener('click', timer = () => {
       };
       seconds -= 1;
       // When timer runs out(TRO)
+      // Removing 00:00 format from top 2 timers
       if (seconds == 0 && minutes == 0) {
         running = false;
         clearInterval(intervalID);
         minutes = startMin;
         seconds = 0;
         if (minutes < 10) {
-          mainTimer.textContent = `0${minutes}:0${seconds}`;
+          mainTimer.textContent = `${minutes}`;
         } else {
-          mainTimer.textContent = `${minutes}:0${seconds}`;
+          mainTimer.textContent = `${minutes}`;
         };
         // Momentarily switched it to timer3() to try it with scripts3.js
         //timer2()
         timer3()
       } else {
         // When actually running
+        // Added MainTimer3, to potentially display the running timers on 3rd display
+        // Removing MainTimer parts to only show the 3rd display running
         if (minutes < 10 && seconds < 10) {
-          mainTimer.textContent = `0${minutes}:0${seconds}`;
+          mainTimer3.textContent = `0${minutes}:0${seconds}`;
         } else if (minutes >= 10 && seconds < 10) {
-          mainTimer.textContent = `${minutes}:0${seconds}`;
+          mainTimer3.textContent = `${minutes}:0${seconds}`;
         } else if (minutes < 10 && seconds >= 10) {
-          mainTimer.textContent = `0${minutes}:${seconds}`;
+          mainTimer3.textContent = `0${minutes}:${seconds}`;
         } else {
-          mainTimer.textContent = `${minutes}:${seconds}`;
+          mainTimer3.textContent = `${minutes}:${seconds}`;
         };
       };
       console.log(seconds);
@@ -67,17 +71,19 @@ btnReset.addEventListener('click', reset = () => {
   clearInterval(intervalID);
   minutes = 5; startMin = 5;// do not change cause default is 5 minutes
   seconds = 0;
-  mainTimer.textContent = `0${minutes}:0${seconds}`;
+  // Removing 00:00 format from top 2 timers
+  mainTimer.textContent = `${minutes}`;
 })
 increment.addEventListener('click', function() {
   if (minutes < 60 && startMin < 60) {
     minutes += 1;
     startMin += 1;
   }
+  // Removing 00:00 format from top 2 timers
   if (minutes < 10) {
-    mainTimer.textContent = `0${minutes}:0${seconds}`
+    mainTimer.textContent = `${minutes}`;
   } else {
-    mainTimer.textContent = `${minutes}:0${seconds}`
+    mainTimer.textContent = `${minutes}`;
   };
 })
 decrement.addEventListener('click', function() {
@@ -85,10 +91,11 @@ decrement.addEventListener('click', function() {
     minutes -= 1;
     startMin -= 1;
   };
+  // Removing 00:00 format from top 2 timers
   if (minutes < 10) {
-    mainTimer.textContent = `0${minutes}:0${seconds}`
+    mainTimer.textContent = `${minutes}`;
   } else {
-    mainTimer.textContent = `${minutes}:0${seconds}`
+    mainTimer.textContent = `${minutes}`;
   };
 });
 
@@ -100,18 +107,10 @@ decrement.addEventListener('click', function() {
 Creating a super super basic timer
 
 ideas
--remove unused reset buttons
--within third display, show the pomodoros simultaneously
-  display only the clocks that are running
-  pretty much just start putting the pieces together
--one the first 2 timers, only show the minute goal
+-one the first 2 timers
+  remove 00:00 format, just the single minutes
+  keep 00:00 format for 3rd display reset
   the timers will only run on the third one
--combine, one display but 2 separate timers??
-  each reset button resets for both
-  constraint it to not let it start if it's running
-  only 1 start/stop button
-  only 1 reset button
-  multiple inc/dec buttons(2 of each)
 -add it back to a single file?
 -idk tbh, smallass steps
 -combine them????
