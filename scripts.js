@@ -28,6 +28,8 @@ btnStartStop.addEventListener('click', timer = () => {
       // When timer runs out(TRO)
       // Removing 00:00 format from top 2 timers
       if (seconds == 0 && minutes == 0) {
+        // Play audio when it reaches 0
+        playAudio.play();
         running = false;
         clearInterval(intervalID);
         minutes = startMin;
@@ -44,6 +46,7 @@ btnStartStop.addEventListener('click', timer = () => {
         // When actually running
         // Added MainTimer3, to potentially display the running timers on 3rd display
         // Removing MainTimer parts to only show the 3rd display running
+        timerLabel.textContent = 'Break';
         if (minutes < 10 && seconds < 10) {
           mainTimer3.textContent = `0${minutes}:0${seconds}`;
         } else if (minutes >= 10 && seconds < 10) {
@@ -107,10 +110,14 @@ decrement.addEventListener('click', function() {
 Creating a super super basic timer
 
 ideas
--one the first 2 timers
-  remove 00:00 format, just the single minutes
-  keep 00:00 format for 3rd display reset
-  the timers will only run on the third one
+-add specification while 3rd display running
+  do not increment/decrement
+  possibly just add if/else statement inside dec/inc functions???
+-add dependencies
+  bootstrap
+  fontawesome
+-add icons
+-add the css
 -add it back to a single file?
 -idk tbh, smallass steps
 -combine them????
