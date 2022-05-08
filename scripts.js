@@ -77,29 +77,34 @@ btnReset.addEventListener('click', reset = () => {
   // Removing 00:00 format from top 2 timers
   mainTimer.textContent = `${minutes}`;
 })
+// To inc/dec, adding constraint to only inc/dec if seconds are at 0
 increment.addEventListener('click', function() {
-  if (minutes < 60 && startMin < 60) {
-    minutes += 1;
-    startMin += 1;
+  if (seconds == 0) {
+    if (minutes < 60 && startMin < 60) {
+      minutes += 1;
+      startMin += 1;
+    }
+    // Removing 00:00 format from top 2 timers
+    if (minutes < 10) {
+      mainTimer.textContent = `${minutes}`;
+    } else {
+      mainTimer.textContent = `${minutes}`;
+    };
   }
-  // Removing 00:00 format from top 2 timers
-  if (minutes < 10) {
-    mainTimer.textContent = `${minutes}`;
-  } else {
-    mainTimer.textContent = `${minutes}`;
-  };
 })
 decrement.addEventListener('click', function() {
-  if (startMin > 1 && minutes > 1) {
-    minutes -= 1;
-    startMin -= 1;
-  };
-  // Removing 00:00 format from top 2 timers
-  if (minutes < 10) {
-    mainTimer.textContent = `${minutes}`;
-  } else {
-    mainTimer.textContent = `${minutes}`;
-  };
+  if (seconds == 0) {
+    if (startMin > 1 && minutes > 1) {
+      minutes -= 1;
+      startMin -= 1;
+    };
+    // Removing 00:00 format from top 2 timers
+    if (minutes < 10) {
+      mainTimer.textContent = `${minutes}`;
+    } else {
+      mainTimer.textContent = `${minutes}`;
+    };
+  }
 });
 
 
@@ -110,9 +115,6 @@ decrement.addEventListener('click', function() {
 Creating a super super basic timer
 
 ideas
--add specification while 3rd display running
-  do not increment/decrement
-  possibly just add if/else statement inside dec/inc functions???
 -add dependencies
   bootstrap
   fontawesome

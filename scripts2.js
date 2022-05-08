@@ -71,33 +71,38 @@ btnReset2.addEventListener('click', reset2 = () => {
   mainTimer2.textContent = `${minutes2}`;
   mainTimer3.textContent = `${minutes2}:0${seconds2}`
 })
+// To inc/dec, adding constraint to only inc/dec if seconds are at 0
 increment2.addEventListener('click', function() {
-  if (minutes2 < 60 && startMin2 < 60) {
-    minutes2 += 1;
-    startMin2 += 1;
+  if (seconds2 == 0) {
+    if (minutes2 < 60 && startMin2 < 60) {
+      minutes2 += 1;
+      startMin2 += 1;
+    }
+    // Adding increments to also appear on 3rd display
+    // Removing 00:00 format from top 2 timers
+    if (minutes2 < 10) {
+      mainTimer2.textContent = `${minutes2}`;
+      mainTimer3.textContent = `0${minutes2}:0${seconds2}`;
+    } else {
+      mainTimer2.textContent = `${minutes2}`;
+      mainTimer3.textContent = `${minutes2}:0${seconds2}`;
+    };
   }
-  // Adding increments to also appear on 3rd display
-  // Removing 00:00 format from top 2 timers
-  if (minutes2 < 10) {
-    mainTimer2.textContent = `${minutes2}`;
-    mainTimer3.textContent = `0${minutes2}:0${seconds2}`;
-  } else {
-    mainTimer2.textContent = `${minutes2}`;
-    mainTimer3.textContent = `${minutes2}:0${seconds2}`;
-  };
 });
 decrement2.addEventListener('click', function() {
-  if (startMin2 > 1 && minutes2 > 1) {
-    minutes2 -= 1;
-    startMin2 -= 1;
+  if (seconds2 == 0) {
+    if (startMin2 > 1 && minutes2 > 1) {
+      minutes2 -= 1;
+      startMin2 -= 1;
+    }
+    // Adding decrements to also appear on 3rd display
+    // Removing 00:00 format from top 2 timers
+    if (minutes2 < 10) {
+      mainTimer2.textContent = `${minutes2}`;
+      mainTimer3.textContent = `0${minutes2}:0${seconds2}`;
+    } else {
+      mainTimer2.textContent = `${minutes2}`;
+      mainTimer3.textContent = `${minutes2}:0${seconds2}`;
+    };
   }
-  // Adding decrements to also appear on 3rd display
-  // Removing 00:00 format from top 2 timers
-  if (minutes2 < 10) {
-    mainTimer2.textContent = `${minutes2}`;
-    mainTimer3.textContent = `0${minutes2}:0${seconds2}`;
-  } else {
-    mainTimer2.textContent = `${minutes2}`;
-    mainTimer3.textContent = `${minutes2}:0${seconds2}`;
-  };
 });
