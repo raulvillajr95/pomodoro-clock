@@ -115,11 +115,9 @@ decrement.addEventListener('click', function() {
 Creating a super super basic timer
 
 ideas
--add dependencies
-  bootstrap
-  fontawesome
 -add icons
 -add the css
+  this might get a lil messy cause of the id/class name changing
 -add it back to a single file?
 -idk tbh, smallass steps
 -combine them????

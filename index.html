@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap and Font Awesome dependencies -->
+  <script src="https://kit.fontawesome.com/bd57eac34f.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
@@ -12,20 +15,25 @@
     <div id="container">
       <div id="timer-1">
         <h2 id="main-timer"></h2>
-        <button id="decrement">Down 1 min</button>
-        <button id="increment">Up 1 min</button>
+        <button id="decrement"><i class="fa-solid fa-arrow-down"></i></button>
+        <button id="increment"><i class="fa-solid fa-arrow-up"></i></button>
       </div>
       <div id="timer-2">
         <h2 id="main-timer2"></h2>
-        <button id="decrement2">Down 1 min</button>
-        <button id="increment2">Up 1 min</button>
+        <button id="decrement2"><i class="fa-solid fa-arrow-down"></i></button>
+        <button id="increment2"><i class="fa-solid fa-arrow-up"></i></button>
       </div>
     </div>
     <div id="timer-3">
       <h3 id="timer-label"></h3>
       <h2 id="main-timer3"></h2>
-      <button id="btn-startstop3">Start/Stop</button>
-      <button id="btn-reset3">Reset</button>
+      <button id="btn-startstop3">
+        <div>
+          <i class="fa-solid fa-play"></i>
+          <i class="fa-solid fa-pause"></i>
+        </div>
+      </button>
+      <button id="btn-reset3"><i class="fa-solid fa-arrows-rotate"></i></button>
     </div>
   </div>
   <!-- Hidden buttons -->
