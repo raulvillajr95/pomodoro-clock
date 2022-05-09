@@ -58,7 +58,7 @@ btnStartStop3.addEventListener('click', timer3 = () => {
       console.log(seconds2);
       console.log(running2);
       console.log(minutes2);
-    }, 100);
+    }, 1000);
   } else if (running == true && running2 == false) {
     // Add a stop to 1st timer
     running = false;

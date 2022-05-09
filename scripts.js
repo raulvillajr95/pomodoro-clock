@@ -60,7 +60,7 @@ btnStartStop.addEventListener('click', timer = () => {
       console.log(seconds);
       console.log(running);
       console.log(minutes);
-    }, 100);
+    }, 1000);
   } else {
     // Add a stop to 2nd timer
     running = false;
@@ -115,9 +115,14 @@ decrement.addEventListener('click', function() {
 Creating a super super basic timer
 
 ideas
--add icons
 -add the css
   this might get a lil messy cause of the id/class name changing
+  tweak css a lil bit more
+  dark mode
+  change id names
+  make it look good
+-change interval to 1000(for real seconds)
+-double check user stories, maybe run it with test
 -add it back to a single file?
 -idk tbh, smallass steps
 -combine them????
